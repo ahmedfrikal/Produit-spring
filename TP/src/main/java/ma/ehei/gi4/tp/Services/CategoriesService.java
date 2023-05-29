@@ -30,8 +30,15 @@ public class CategoriesService {
     }
 
     public void delete(Long id){
-        categorieRepository.deleteById(id);
+        if(categorieRepository.existsById(id)){
+            Category category=categorieRepository.findById(id).get();
+            if(category.getProduits().size()==0){
+                categorieRepository.deleteById(id);
+            }
+        }
+
     }
+
 
 
 }
