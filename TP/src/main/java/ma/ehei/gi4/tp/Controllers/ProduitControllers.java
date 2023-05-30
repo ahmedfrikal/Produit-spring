@@ -27,11 +27,16 @@ public class ProduitControllers {
     public Produit save(@PathVariable("idCategories") Long idCategories,  @RequestBody Produit produit){
         return produitService.save(idCategories,produit);
     }
-    @PutMapping("/Produit/{id}")
+    @PutMapping("/Produits/{id}")
     public Produit update(@PathVariable("id") Long id,@RequestBody Produit produit){
         return produitService.update(id, produit);
     }
-    @DeleteMapping("/Produit/{id}")
+    @DeleteMapping("/Produits/{id}")
     public void delete(@PathVariable("id") Long id){produitService.delete(id);}
+
+    @GetMapping("/Produits/Prix/{prix}")
+    public List<Produit> findByPrix(@PathVariable("prix") double prix){
+        return produitService.finProductByPrice(prix);
+    }
 
 }

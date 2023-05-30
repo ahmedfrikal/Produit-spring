@@ -50,4 +50,8 @@ public class ProduitService {
     public void delete(Long id){
         produitRepository.deleteById(id);
     }
+
+    public List<Produit> finProductByPrice(double price){
+        return produitRepository.findProduitByPrix(price);
+    }
 }

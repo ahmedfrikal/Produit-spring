@@ -35,6 +35,9 @@ public class CategoriesService {
             if(category.getProduits().size()==0){
                 categorieRepository.deleteById(id);
             }
+            else{
+                new RuntimeException("existe deja des produit");
+            }
         }
 
     }
